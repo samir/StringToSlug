@@ -1,4 +1,4 @@
-= StringToSlug
+.h1 StringToSlug
 
 StringToSlug is a simple class that generate slug versions of a given string, whith
 the capability to swap accented (latin) characters to the "ascii" version.
