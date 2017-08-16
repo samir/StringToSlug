@@ -1,7 +1,7 @@
 <?php
 /**
  * StringToSlug
- * 
+ *
  * Generate Strings in Slug
  *
  *
@@ -11,18 +11,18 @@
 class StringToSlug
 {
 
-  
+
   private static $_separator        = '-';
   private static $_to_lower         = TRUE;
   private static $_replace_new_line = TRUE;
-  
+
 	/**
 	 * set_separator
 	 *
 	 * set a new character as separator
 	 *
 	 * @param      String (default: dash/hyphen [-])
- 	*/ 
+ 	*/
   public static function set_separator($separator = "-")
   {
     self::$_separator = $separator;
@@ -34,7 +34,7 @@ class StringToSlug
 	 * set a flag to define if method gen lowercase string
 	 *
 	 * @param      Boolean
- 	*/ 
+ 	*/
   public static function to_lower($flag = TRUE)
   {
     self::$_to_lower = $flag;
@@ -46,7 +46,7 @@ class StringToSlug
 	 * set a flag to define if method gen replace new lines too
 	 *
 	 * @param      Boolean
- 	*/ 
+ 	*/
   public static function replace_new_lines($flag = TRUE)
   {
     self::$_replace_new_line = $flag;
@@ -56,22 +56,22 @@ class StringToSlug
 	/**
 	 * gen
 	 *
-	 * this method use the function stripSpecialChars to generate a slug version of 
+	 * this method use the function stripSpecialChars to generate a slug version of
 	 * given string
 	 *
 	 * @param      String
 	 * @return     String
- 	*/ 
+ 	*/
 	public static function gen($string)
 	{
 
 	  $separator = self::$_separator;
-	  
+
 	  // Call method stripSpecialChars to strip symbols, pontuactions and accented characters
 		$temp = self::stripSpecialChars($string);
 
-		if(self::$_to_lower) 
-		{ 
+		if(self::$_to_lower)
+		{
 		  $temp = strtolower ($temp);
 		}
 
@@ -88,10 +88,10 @@ class StringToSlug
 
 		// Remove $separator from the beginning and end of string
 		$temp = preg_replace("/(^{$separator})|({$separator}$)/",'',$temp);
-		
+
 		return $temp;
 	}
-	
+
 
 	/**
 	 * stripSpecialChars
@@ -103,22 +103,10 @@ class StringToSlug
 	 */
 	private function stripSpecialChars($string)
 	{
-    
+
 	  # TODO: detect encoding to change charset if only necessary
 		$string = utf8_decode($string);
-	
-		$arr = array();
 
-		// empty chars in range 0 to 32
-		for($x = 0; $x < 32; $x++){
-			$arr[chr($x)] = '';
-		}
-		
-		// empty chars in range 256 to 1000
-		for($x = 256; $x < 1000; $x++){
-			$arr[chr($x)] = '';
-		}
-      
 		$arr = array(
 
       chr(32)  => ' ', // blankspace
@@ -159,7 +147,7 @@ class StringToSlug
       chr(62)  => ' ', // >
       chr(63)  => ' ', // ?
       chr(64)  => ' ', // @
-      
+
       // Keep upper ASCII characters
       /*
       chr(65)  => '', // A
@@ -196,7 +184,7 @@ class StringToSlug
       chr(94)  => ' ', // ^
       chr(95)  => ' ', // _
       chr(96)  => ' ', // `
-      
+
       // Keep lower ASCII characters
       /*
       chr(97)  => '', // a
@@ -264,7 +252,7 @@ class StringToSlug
       chr(157) => ' ', // 
       chr(158) => ' ', // ž
       chr(159) => ' ', // Ÿ
-      chr(160) => ' ', //  
+      chr(160) => ' ', //
       chr(161) => ' ', // ¡
       chr(162) => ' ', // ¢
       chr(163) => ' ', // £
@@ -277,7 +265,7 @@ class StringToSlug
       chr(170) => ' ', // ª
       chr(171) => ' ', // «
       chr(172) => ' ', // ¬
-      chr(173) => ' ', // 
+      chr(173) => ' ', //
       chr(174) => ' ', // ®
       chr(175) => ' ', // ¯
       chr(176) => ' ', // °
@@ -298,7 +286,7 @@ class StringToSlug
       chr(191) => ' ', // ¿
       chr(247) => ' ', // ÷
 
-      // Replace accented characters to relative ASCII version 
+      // Replace accented characters to relative ASCII version
       chr(192) => 'A', // À
       chr(193) => 'A', // Á
       chr(194) => 'A', // Â
@@ -361,7 +349,7 @@ class StringToSlug
       chr(253) => 'y', // ý
       chr(255) => 'y', // ÿ
 
-      // Replace Greek, Cyrillic and others characters to a visually similar ASCII character  
+      // Replace Greek, Cyrillic and others characters to a visually similar ASCII character
       chr(198) => 'AE', // Æ
       chr(230) => 'ae', // æ
 
@@ -377,6 +365,11 @@ class StringToSlug
 
 
     );
+
+    // empty chars in range 0 to 32
+    for($x = 0; $x < 32; $x++){
+        $arr[chr($x)] = '';
+    }
 
 		return strtr($string,$arr);
 	}
