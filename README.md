@@ -10,7 +10,7 @@ the capability to swap accented (latin) characters to the "ascii" version.
     echo StringToSlug::gen("(Text in parenthesis) [Text in square brackets] {Text in curly brackets}").PHP_EOL;
 
     //Will print a-e-i-o-u-a-e-i-o-u-a-e-i-o-u-a-e-i-o-u-a-o-n-c
-    echo StringToSlug::gen("á é í ó ú à è ì ò ù ä ë ï ö ü â ê î ô û ã õ ñ ç"").PHP_EOL;
+    echo StringToSlug::gen("á é í ó ú à è ì ò ù ä ë ï ö ü â ê î ô û ã õ ñ ç").PHP_EOL;
 
     //Will print a-e-i-o-u-a-e-i-o-u-a-e-i-o-u-a-e-i-o-u-a-o-n-c
     echo StringToSlug::gen("Á É Í Ó Ú À È Ì Ò Ù Ä Ë Ï Ö Ü Â Ê Î Ô Û Ã Õ Ñ Ç").PHP_EOL;
