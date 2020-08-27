@@ -16,7 +16,7 @@ the capability to swap accented (latin) characters to the "ascii" version.
     echo StringToSlug::gen("Á É Í Ó Ú À È Ì Ò Ù Ä Ë Ï Ö Ü Â Ê Î Ô Û Ã Õ Ñ Ç").PHP_EOL;
 
     //Will print symbols-and-punctuations
-    echo StringToSlug::gen("Symbols: @ #  % ^ & * ~ | \ /, and Punctuations ! ?").PHP_EOL;
+    echo StringToSlug::gen("Symbols: @ #  % ^ & * ~ | \\ /, and Punctuations ! ?").PHP_EOL;
 
     //Will print testing-how-a-string-will-resultin-slug-if-have-new-linescharacters
     echo StringToSlug::gen("Testing how a string \n \n\nwill result\rin slug\r\nif have new lines\rcharacters").PHP_EOL;
