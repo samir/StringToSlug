@@ -1,0 +1,19 @@
+{
+    "name": "samir/string-to-slug",
+    "description": "StringToSlug is a simple class that generate slug versions of a given string, whith the capability to swap accented (latin) characters to the \"ascii\" version.",
+    "license": "MIT",
+    "version": "1.1.0",
+    "require": {
+        "php": ">=5.3",
+        "ext-pcre": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "SamirBraga\\": "src/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~9.2.0",
+        "pestphp/pest": "^0.2.4"
+    }
+}
